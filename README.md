@@ -1,6 +1,7 @@
 # node-steam-market-sell-bot
 node.js script for selling items on steam market
 
+DISCLAIMER : Using bots is against Steam's TOS (```You may not use Cheats, automation software (bots), mods, hacks, or any other unauthorized third-party software, to modify or automate any Subscription Marketplace process.```). I do not take any responsibility for any damage that using this may cause.
 
 ## Usage
 Run ```npm install``` indside of script's directory in terminal.
