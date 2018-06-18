@@ -8,4 +8,4 @@ Run ```npm install``` indside of script's directory in terminal.
 Fill config.js file with required credentials. 
 Run ```node app```.
 
-Script will manually will start selling all your items from specified game in config and by specified type of price also specified in config.
+Script will manually will start selling all your items from specified game in config and by specified type of price also specified in config. It will also automatically accept mobile confirmations.
