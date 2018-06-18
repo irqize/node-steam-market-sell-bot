@@ -1,0 +1,27 @@
+{
+  "name": "steam-market-sell-bot",
+  "version": "1.0.0",
+  "description": "node.js script for selling items on steam market",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irqize/node-steam-market-sell-bot.git"
+  },
+  "author": "irqize",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irqize/node-steam-market-sell-bot/issues"
+  },
+  "homepage": "https://github.com/irqize/node-steam-market-sell-bot#readme",
+  "dependencies": {
+    "request": "^2.87.0",
+    "steam-totp": "^2.1.0",
+    "steam-tradeoffers": "^3.1.1",
+    "steam-user": "^3.27.1",
+    "steam-web-api-key": "0.0.3",
+    "steamcommunity": "^3.36.2"
+  }
+}
