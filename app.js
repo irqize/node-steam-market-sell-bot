@@ -39,7 +39,7 @@ steamBot.logOn((name, id) => {
 
 function getPrice(name){
 	return new Promise((resolve, reject) => {
-		apiRequests.getPrice(name,(err, price) =>{
+		apiRequests.getPrice(name,config.account.currencyCode, (err, price) =>{
 			if(err) reject(err);
 			resolve(price);
 		})

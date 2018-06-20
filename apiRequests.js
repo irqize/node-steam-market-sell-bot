@@ -7,8 +7,8 @@ class apiRequests{
     constructor(){
 
     }
-    getPrice(market_hash_name,callback){
-        let link = 'http://steamcommunity.com/market/priceoverview/?appid=730&country=PL&currency=3&market_hash_name='+encodeURIComponent(market_hash_name);
+    getPrice(market_hash_name,currency,callback){
+        let link = 'https://steamcommunity.com/market/priceoverview/?appid=730&country=PL&currency='+currency+'&market_hash_name='+encodeURIComponent(market_hash_name);
         request.get(link, function (err, res, body) {
 			try{
 				if(err || !res)return callback(err);
