@@ -29,16 +29,16 @@ class apiRequests{
 			}            
         });
     }
-    sellItem(assetID, contextID, price, steamBot, steamID, callback){
+    sellItem(assetID, contextID, price, appID, steamBot, steamID, callback){
             if(!price) return callback('No price');
-            if(price > 1.5) return callback(null, 'OK');
+
             let link = 'https://steamcommunity.com/market/sellitem/';
 
             price = Math.floor((Number(price)/1.15 - 0.01)*100);
             let data =
             {
                 "sessionid": steamBot.sessionID,
-                "appid": '730',
+                "appid": appID,
                 "contextid": contextID+'',
                 "assetid": assetID,
                 "amount": 1,

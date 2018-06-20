@@ -6,8 +6,6 @@ let accountCredentials = config.account;
 
 let steamBot = new SteamBot(accountCredentials.login, accountCredentials.password, accountCredentials.shared_secret, accountCredentials.identity_secret, accountCredentials.apiKey);
 
-let itemsToSell = {};
-
 let steamID = null;
 let processedInv = null;
 let numOfItems = null;
@@ -46,9 +44,9 @@ function getPrice(name){
 	});
 }
 
-function sellItem(id, price){
+function sellItem(id, contextid, price){
 	return new Promise((resolve, reject) => {
-		apiRequests.sellItem(id, 2, price, steamBot, steamID, (err) => {
+		apiRequests.sellItem(id, contextid, price, config.gameCode ,steamBot, steamID, (err) => {
 			if(err) reject(err);
 			resolve();
 		})
@@ -63,18 +61,16 @@ function sellTimeout(){
 
 async function startSelling() {
 	for(name in processedInv){
-		let price = null;
-
 		await sellAllItems(name);
 	}
 }
 
 async function sellAllItems(name){
 	let price = await getPrice(name);
-	console.log(`Selling of ${processedInv[name].length} ${name} for ${price} each.`);
+	console.log(`Selling ${processedInv[name].length} of ${name} for ${price} each.`);
 
 	for(let i=0;i<processedInv[name].length;i++){
-		await sellItem(processedInv[name][i].assetid, price).catch((err)=>{
+		await sellItem(processedInv[name][i].assetid, processedInv[name][i].contextid, price).catch((err)=>{
 			console.log(`Couldln't sell one of ${processedInv[name]}. Reason : ${err}`);
 		});
 		globalItemsSold++;

@@ -37,7 +37,7 @@ class steamBot {
            
             self.steamcommunity.setCookies(cookies);
 
-            self.steamcommunity.startConfirmationChecker(5000, self.identity_secret);
+            self.steamcommunity.startConfirmationChecker(4000, self.identity_secret);
 
             self.jar = request.jar();
             cookies.forEach(name => {
