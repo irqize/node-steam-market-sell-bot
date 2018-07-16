@@ -16,11 +16,17 @@ class apiRequests{
 				if(res.statusCode != 200) return callback('Response Error'+err?err:res.statusCode);
 				res = JSON.parse(body);
 				if(!res.success)return callback('Api Error');
-				let price;
+				let price = '', apiPrice = null;
 				
-				if(config.useLowestPrices == false || !res.lowest_price) price = res.median_price.substr(0, res.median_price.indexOf(',')+3);
-				else price = res.lowest_price.substr(0, res.lowest_price.indexOf(',')+3);
-	
+				if(config.useLowestPrices == false || !res.lowest_price) apiPrice = res.median_price;
+				else apiPrice = res.lowest_price;
+                
+                for(let i=0;i<apiPrice.length;i++){
+                    if((apiPrice.charAt(i) >= 0 && apiPrice.charAt(i) <= 9) || apiPrice.charAt(i) == ',' || apiPrice.charAt(i) == '.'){
+                        price += apiPrice.charAt(i);
+                    }
+                }
+                
 				price = Number(price.replace(',','.'));
 	
 				callback(null, price);

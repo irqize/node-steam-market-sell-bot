@@ -8,7 +8,7 @@ module.exports = {
 		currencyCode : 1 // code for currency used on account, codes can be found here https://github.com/SteamRE/SteamKit/blob/master/Resources/SteamLanguage/enums.steamd#L856
 	},
 	useLowestPrices : true,    //true for lowest prices false for median,
-	sellTimeout : 4000,
+	sellTimeout : 3000,
 	gameCode : 730 //AppID of game on Steam, can be checked for example here https://steamdb.info/ (730 for CS:GO)
 	
 };
