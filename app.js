@@ -1,8 +1,15 @@
-let config = require('./config');
 let SteamBot = require('./steamBot');
 let apiRequests = new (require('./apiRequests'));
 
+let args = process.argv.slice(2);
+
+let config;
+
+if(args[0]) config = require('./config.'+args[0]+'.js');
+else config = require('./config.js');
+
 let accountCredentials = config.account;
+
 
 let steamBot = new SteamBot(accountCredentials.login, accountCredentials.password, accountCredentials.shared_secret, accountCredentials.identity_secret, accountCredentials.apiKey);
 

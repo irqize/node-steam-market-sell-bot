@@ -6,6 +6,6 @@ DISCLAIMER : Using bots is against Steam's TOS (```You may not use Cheats, autom
 ## Usage
 Run ```npm install``` indside of script's directory in terminal.
 Fill config.js file with required credentials. 
-Run ```node app```.
+Run ```node app``` (script will use config.js file) or ```node app YourAccountName``` (script will use config.YourAccountName.js, useful when you want to have multiple configs in your script folder).
 
 Script will manually will start selling all your items from specified game in config and by specified type of price also specified in config. It will also automatically accept mobile confirmations.
