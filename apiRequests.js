@@ -40,7 +40,8 @@ class apiRequests{
 
             let link = 'https://steamcommunity.com/market/sellitem/';
 
-            price = Math.floor((Number(price)/1.15 - 0.01)*100);
+            let newPrice = calculateNewPrice(price);
+            
             let data =
             {
                 "sessionid": steamBot.sessionID,
@@ -48,7 +49,7 @@ class apiRequests{
                 "contextid": contextID+'',
                 "assetid": assetID,
                 "amount": 1,
-                "price": price+''
+                "price": newPrice+''
             }
 
             var requestCommunity = request.defaults({
@@ -83,6 +84,25 @@ class apiRequests{
             });
             
     }
+}
+
+function calculateNewPrice(p){
+    p*=100;
+    let currentPrice = Math.floor(p/1.15)
+
+    if(currentPrice + 2 >= p) return p - 2;
+
+    let steamFee = Math.floor(currentPrice * DEFAULT_STEAM_FEE);
+    let developerFee  = Math.floor(currentPrice * DEFAULT_DEVELOPER_FEE)
+
+    while((currentPrice + steamFee + developerFee) < p){
+        currentPrice++;
+        steamFee = Math.floor(currentPrice * DEFAULT_STEAM_FEE);
+        developerFee  = Math.floor(currentPrice * DEFAULT_DEVELOPER_FEE)
+    }
+
+    return currentPrice;
+
 }
 
 module.exports = apiRequests;

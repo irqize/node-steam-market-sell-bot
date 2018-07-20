@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/irqize/node-steam-market-sell-bot#readme",
   "dependencies": {
+    "npm": "^6.2.0",
     "request": "^2.87.0",
     "steam-totp": "^2.1.0",
     "steam-tradeoffers": "^3.1.1",
